@@ -1,4 +1,12 @@
 
+    /**
+     * @file NREB_Folder.hpp
+     * @brief Declaration of Builder's IO's Object : Folder
+     * @author Louis ABEL
+     * @date 18/03/2019
+     * @copyright GNU GPL v3
+     */
+
     #include <vector>
     #include <fstream>
     #include <sstream>
@@ -24,7 +32,7 @@
              */
             class Folder : public Entry {
                 private :   // Fields
-                    EntryList childs;
+                    EntryList childs;       /**< Folder's childs */
 
                 public:     // Methods
                     //## Constructor ##//

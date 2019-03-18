@@ -1,4 +1,12 @@
 
+    /**
+     * @file NREB_Folder.hpp
+     * @brief Implementation of Builder's IO's Object : Folder
+     * @author Louis ABEL
+     * @date 18/03/2019
+     * @copyright GNU GPL v3
+     */
+
     #include "NREB_Folder.hpp"
 
     namespace FileSystem = std::experimental::filesystem;

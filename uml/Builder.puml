@@ -1,0 +1,17 @@
+@startuml
+    package NREB {
+        package IO {
+            abstract Entry {
+                - string name
+            }
+            class Folder {
+            }
+            class File {
+            }
+            Entry -- "1" Entry : parent
+            Folder -up-|> Entry
+            Folder -- "*" Entry : childs
+            File -up-|> Entry
+        }
+    }
+@enduml

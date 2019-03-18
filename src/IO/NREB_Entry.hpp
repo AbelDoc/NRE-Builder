@@ -1,4 +1,12 @@
 
+    /**
+     * @file NREB_Entry.hpp
+     * @brief Declaration of Builder's IO's Object : Entry
+     * @author Louis ABEL
+     * @date 18/03/2019
+     * @copyright GNU GPL v3
+     */
+
     #include <iostream>
     #include <string>
     #include <algorithm>

@@ -1,4 +1,12 @@
 
+    /**
+     * @file NREB_Main.hpp
+     * @brief Implementation of Builder's Main
+     * @author Louis ABEL
+     * @date 18/03/2019
+     * @copyright GNU GPL v3
+     */
+
     #include "IO/File/NREB_File.hpp"
     #include "IO/Folder/NREB_Folder.hpp"
 

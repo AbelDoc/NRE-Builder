@@ -1,4 +1,12 @@
 
+    /**
+     * @file NREB_File.hpp
+     * @brief Implementation of Builder's IO's Object : File
+     * @author Louis ABEL
+     * @date 18/03/2019
+     * @copyright GNU GPL v3
+     */
+
     #include "NREB_File.hpp"
 
     namespace NREB {
