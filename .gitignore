@@ -1,2 +1,4 @@
 bin/*
 obj/*
+!bin/config.nre
+!bin/NRE-Builder.exe

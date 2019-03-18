@@ -1,7 +1,6 @@
 
     #include "NREB_Folder.hpp"
 
-
     namespace FileSystem = std::experimental::filesystem;
 
     namespace NREB {
@@ -43,7 +42,7 @@
                     insertFileCall(makefile);
                 }
                 for (auto& f : getFolderChild()) {
-                    f->createMakefile();
+                    f->createMakefile(files, folders);
                 }
             }
 
@@ -53,7 +52,72 @@
                 if (config.fail()) {
                     std::cout << "Missing or Corrupted config file" << std::endl;
                 }
-                makefile <<
+                std::string compiler, linker, cFlags, lFlags, includes, libs, libDir, out, current;
+                std::getline(config, compiler);
+                std::getline(config, linker);
+                std::getline(config, cFlags);
+                std::getline(config, lFlags);
+                std::getline(config, includes);
+                std::getline(config, libs);
+                std::getline(config, libDir);
+                std::getline(config, out);
+                compiler.replace(0, TAG_COMPILER.length(), "");
+                linker.replace(0, TAG_LINKER.length(), "");
+                cFlags.replace(0, TAG_CFLAGS.length(), "");
+                lFlags.replace(0, TAG_LDFLAGS.length(), "");
+                includes.replace(0, TAG_INC.length(), "");
+                libs.replace(0, TAG_LIB.length(), "");
+                libDir.replace(0, TAG_LIBDIR.length(), "");
+                out.replace(0, TAG_OUT.length(), "");
+
+                makefile << "export " << MARKER_COMPILER << " = " << compiler << '\n';
+                makefile << "export " << MARKER_LINKER << " = " << linker << "\n\n";
+                makefile << "export " << MARKER_CFLAGS << " = " << cFlags << '\n';
+                makefile << "export " << MARKER_LDFLAGS << " = " << lFlags << "\n\n";
+                makefile << "export " << MARKER_INC << " = ";
+
+                std::stringstream parserInc(includes);
+                while (std::getline(parserInc, current, ' ')) {
+                    makefile << "-I\"" << current << "\" ";
+                }
+                makefile << '\n';
+                makefile << "export " << MARKER_LIB << " = ";
+
+                std::stringstream parserLib(libs);
+                while (std::getline(parserLib, current, ' ')) {
+                    makefile << "\"" << current << "\" ";
+                }
+                makefile << '\n';
+                makefile << "export " << MARKER_LIBDIR << " = ";
+
+                std::stringstream parserLibDir(libDir);
+                while (std::getline(parserLibDir, current, ' ')) {
+                    makefile << "-L\"" << current << "\" ";
+                }
+                makefile << "\n\n";
+                makefile << MARKER_OBJDIR << " = obj/\n";
+                makefile << MARKER_BIN << " = bin/\n";
+                makefile << "SRC = " << MARKER_SRC << "\n";
+                makefile << MARKER_OBJ << " = ";
+                for (File* f : files) {
+                    makefile << CALL_OBJDIR << f->getObjectPath() << " ";
+                }
+                makefile << "\n";
+                makefile << "OUT = " << out << "\n\n";
+                makefile << MARKER_TARGET << " : " << MARKER_CHILDS << " " << MARKER_OUT << "\n\n";
+                makefile << "childs :\n\t@(cd $(SRC) && $(MAKE))\n\n";
+                makefile << MARKER_OUT << " : " << CALL_OBJ << "\n";
+                makefile << "\t@$(LD) $(LIBDIR) -o $(BIN)$(OUT) $^ $(LDFLAGS) $(LIB)\n";
+                makefile << "\t@echo \"Jobs done.\"\n\n";
+                makefile << "clean : \n";
+                makefile << "\t@echo \"Clear of obj/\"\n";
+                makefile << "\t@rm -r obj\n";
+                makefile << "\t@mkdir obj\n";
+                for (Folder* f : folders) {
+                    makefile << "\t@mkdir obj" << f->getPath() << "\n";
+                }
+                makefile << "\t@echo \"obj-Tree creation done.\"\n";
+                makefile << "\t@echo \"Clean done.\"\n";
             }
 
             bool Folder::hasFileChild() const {

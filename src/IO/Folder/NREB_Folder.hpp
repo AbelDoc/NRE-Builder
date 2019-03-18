@@ -1,6 +1,7 @@
 
     #include <vector>
     #include <fstream>
+    #include <sstream>
     #include "../NREB_Entry.hpp"
     #include "../File/NREB_File.hpp"
 

@@ -49,6 +49,10 @@
                          * @return the object's file name
                          */
                         std::string getObjectName() const;
+                        /**
+                         * @return the object's file path
+                         */
+                        std::string getObjectPath() const;
             };
         }
     }

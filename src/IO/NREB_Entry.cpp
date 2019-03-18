@@ -5,8 +5,13 @@
         namespace IO {
             const std::string Entry::MARKER_HEADER   = ".hpp";
             const std::string Entry::MARKER_COMPILER = "CXX";
+            const std::string Entry::MARKER_LINKER   = "LD";
             const std::string Entry::MARKER_CFLAGS   = "CFLAGS";
+            const std::string Entry::MARKER_LDFLAGS  = "LDFLAGS";
             const std::string Entry::MARKER_INC      = "INC";
+            const std::string Entry::MARKER_BIN      = "BIN";
+            const std::string Entry::MARKER_LIB      = "LIB";
+            const std::string Entry::MARKER_LIBDIR   = "LIBDIR";
             const std::string Entry::MARKER_CHILDS   = "childs";
             const std::string Entry::MARKER_OUT      = "out";
             const std::string Entry::MARKER_TARGET   = "all";
@@ -24,6 +29,14 @@
             const std::string Entry::CALL_OBJ        = START_CALL + MARKER_OBJ + END_CALL;
             const std::string Entry::MAKEFILE        = "Makefile";
             const std::string Entry::CONFIG          = "config.nre";
+            const std::string Entry::TAG_COMPILER    = "compiler=";
+            const std::string Entry::TAG_LINKER      = "linker=";
+            const std::string Entry::TAG_CFLAGS      = "cflags=";
+            const std::string Entry::TAG_LDFLAGS     = "ldflags=";
+            const std::string Entry::TAG_INC         = "includes=";
+            const std::string Entry::TAG_LIB         = "lib=";
+            const std::string Entry::TAG_LIBDIR      = "libdir=";
+            const std::string Entry::TAG_OUT         = "out=";
 
             Entry::Entry(std::string const& n, Entry* p) : name(n), parent(p) {
                 std::size_t it = name.find("\\");

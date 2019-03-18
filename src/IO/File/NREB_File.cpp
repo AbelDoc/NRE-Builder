@@ -24,5 +24,12 @@
                 res.replace(start, MARKER_SOURCE.length(), MARKER_O);
                 return res;
             }
+
+            std::string File::getObjectPath() const {
+                std::string path = getPath();
+                path.replace(path.find(getName()), getName().length() + 1, getObjectName());
+                path.replace(0, 1, "");
+                return path;
+            }
         }
     }

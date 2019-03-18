@@ -67,8 +67,13 @@
                 public:     // static const
                     static const std::string MARKER_HEADER;
                     static const std::string MARKER_COMPILER;
+                    static const std::string MARKER_LINKER;
                     static const std::string MARKER_CFLAGS;
+                    static const std::string MARKER_LDFLAGS;
                     static const std::string MARKER_INC;
+                    static const std::string MARKER_BIN;
+                    static const std::string MARKER_LIB;
+                    static const std::string MARKER_LIBDIR;
                     static const std::string MARKER_CHILDS;
                     static const std::string MARKER_OUT;
                     static const std::string MARKER_TARGET;
@@ -86,6 +91,14 @@
                     static const std::string CALL_OBJ;
                     static const std::string MAKEFILE;
                     static const std::string CONFIG;
+                    static const std::string TAG_COMPILER;
+                    static const std::string TAG_LINKER;
+                    static const std::string TAG_CFLAGS;
+                    static const std::string TAG_LDFLAGS;
+                    static const std::string TAG_INC;
+                    static const std::string TAG_LIB;
+                    static const std::string TAG_LIBDIR;
+                    static const std::string TAG_OUT;
             };
 
             class File;
