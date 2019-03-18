@@ -25,6 +25,7 @@
         }
 
         if (argc == 1 || (argc == 2 && (std::string(argv[1]) == "-a" || std::string(argv[1]) == "-analyse" || std::string(argv[1]) == "-c" || std::string(argv[1]) == "-create"))) {
+            FileSystem::create_directories("src");
             NREB::IO::Folder src("src");
 
             NREB::IO::FileList files;
