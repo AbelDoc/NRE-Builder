@@ -3,7 +3,7 @@ NRE-Builder is an automatic makefile generator !
 It's allowing to create and manage C/C++ project easily :  
 
 ## Features
-###Project creation  
+### Project creation  
 __./NRE-Builder.exe -c__  
 __./NRE-Builder.exe -create__  
 The project will create a base project architecture :  
@@ -15,7 +15,7 @@ The project will create a base project architecture :
    * _**src/main.cpp**_ : An empty file   
 After the creation the builder will analyse automatically the src directory to create corresponding makefile  
 
-###Makefile generation  
+### Makefile generation  
 __./NRE-Builder.exe__  
 __./NRE-Builder.exe -a__  
 __./NRE-Builder.exe -analyse__  
