@@ -85,6 +85,14 @@
                     static const std::string CALL_OBJDIR;
                     static const std::string CALL_OBJ;
                     static const std::string MAKEFILE;
+                    static const std::string CONFIG;
             };
+
+            class File;
+            class Folder;
+
+            typedef std::vector<File*>      FileList;
+            typedef std::vector<Entry*>     EntryList;
+            typedef std::vector<Folder*>    FolderList;
         }
     }

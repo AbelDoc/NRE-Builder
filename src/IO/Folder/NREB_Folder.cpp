@@ -25,15 +25,15 @@
                 }
             }
 
-            void Folder::createMakefile() const {
+            void Folder::createMakefile(FileList& files, FolderList& folders) const {
                 std::ofstream makefile(MARKER_SRC + getPath() + MAKEFILE);
                 bool hasFile = hasFileChild();
                 bool hasFolder = hasFolderChild();
                 if (hasFile) {
-                    insertFileChilds(makefile);
+                    insertFileChilds(makefile, files);
                 }
                 if (hasFolder) {
-                    insertFolderChilds(makefile);
+                    insertFolderChilds(makefile, folders);
                 }
                 insertTarget(makefile, hasFolder, hasFile);
                 if (hasFolder) {
@@ -45,6 +45,15 @@
                 for (auto& f : getFolderChild()) {
                     f->createMakefile();
                 }
+            }
+
+            void Folder::createProjectMakefile(FileList& files, FolderList& folders) const {
+                std::ofstream makefile(MAKEFILE);
+                std::ifstream config(CONFIG);
+                if (config.fail()) {
+                    std::cout << "Missing or Corrupted config file" << std::endl;
+                }
+                makefile <<
             }
 
             bool Folder::hasFileChild() const {
@@ -75,8 +84,8 @@
                 return true;
             }
 
-            std::vector<File*> Folder::getSourceChild() const {
-                std::vector<File*> res;
+            FileList Folder::getSourceChild() const {
+                FileList res;
                 for (auto& e : childs) {
                     if (e->isFile() && e->getName().find(MARKER_SOURCE) != std::string::npos) {
                         res.emplace_back(static_cast <File*> (e));
@@ -85,8 +94,8 @@
                 return res;
             }
 
-            std::vector<File*> Folder::getHeaderChild() const {
-                std::vector<File*> res;
+            FileList Folder::getHeaderChild() const {
+                FileList res;
                 for (auto& e : childs) {
                     if (e->isFile() && e->getName().find(MARKER_HEADER) != std::string::npos) {
                         res.emplace_back(static_cast <File*> (e));
@@ -95,8 +104,8 @@
                 return res;
             }
 
-            std::vector<Folder*> Folder::getFolderChild() const {
-                std::vector<Folder*> res;
+            FolderList Folder::getFolderChild() const {
+                FolderList res;
                 for (auto& e : childs) {
                     if (e->isFolder()) {
                         res.emplace_back(static_cast <Folder*> (e));
@@ -123,8 +132,8 @@
             }
 
             bool Folder::sourceHasHeader() const {
-                std::vector<File*> sources = getSourceChild();
-                std::vector<File*> headers = getHeaderChild();
+                FileList sources = getSourceChild();
+                FileList headers = getHeaderChild();
                 bool find = true;
                 std::size_t cnt = 0;
                 while (find && cnt < sources.size()) {
@@ -142,18 +151,20 @@
                 return find;
             }
 
-            void Folder::insertFileChilds(std::ofstream& file) const {
+            void Folder::insertFileChilds(std::ofstream& file, FileList& files) const {
                 file << MARKER_OBJ << " = ";
                 for (auto& f : getSourceChild()) {
                     file << CALL_OBJDIR << f->getObjectName() << " ";
+                    files.push_back(f);
                 }
                 file << '\n';
                 file << MARKER_OBJDIR << " = " << getObjectPath() << "\n\n";
             }
 
-            void Folder::insertFolderChilds(std::ofstream& file) const {
+            void Folder::insertFolderChilds(std::ofstream& file, FolderList& folders) const {
                 for (auto& f : getFolderChild()) {
                     file << f->getUpperName() << " = " << f->getName() << '\n';
+                    folders.push_back(f);
                 }
                 file << '\n';
             }

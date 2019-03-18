@@ -5,7 +5,11 @@
     int main(int, char**) {
         NREB::IO::Folder src("src");
 
-        src.createMakefile();
+        FileList files;
+        FolderList folders;
+
+        src.createMakefile(files, folders, true);
+        createProjectMakefile(files, folders);
 
         return 0;
     }
