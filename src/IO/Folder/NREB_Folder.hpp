@@ -106,9 +106,21 @@
                          */
                         std::string getUpperName() const;
                         /**
-                         * @return if all sources has their headers
+                         * @return if the folder contains cpp sources
                          */
-                        bool sourceHasHeader() const;
+                        bool hasCppSource() const;
+                        /**
+                         * @return if the folder contains cpp header
+                         */
+                        bool hasCppHeader() const;
+                        /**
+                         * @return if the folder contains c sources
+                         */
+                        bool hasCSource() const;
+                        /**
+                         * @return if the folder contains c header
+                         */
+                        bool hasCHeader() const;
                         /**
                          * Insert header to declare file compilation
                          * @param file  the file output

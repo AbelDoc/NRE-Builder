@@ -26,6 +26,8 @@
             const std::string Entry::MARKER_OBJ      = "OBJ";
             const std::string Entry::MARKER_SRC      = "src";
             const std::string Entry::MARKER_SOURCE   = ".cpp";
+            const std::string Entry::MARKER_SOURCE_C = ".c";
+            const std::string Entry::MARKER_HEADER_C = ".h";
             const std::string Entry::MARKER_O        = ".o";
             const std::string Entry::MARKER_OBJDIR   = "OBJDIR";
             const std::string Entry::START_CALL      = "$(";

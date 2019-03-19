@@ -26,10 +26,16 @@
             std::string File::getObjectName() const {
                 std::string res(getName());
                 std::size_t start = res.find(MARKER_SOURCE);
-                if (start == std::string::npos) {
-                    return "";
+                if (start != std::string::npos) {
+                    res.replace(start, MARKER_SOURCE.length(), MARKER_O);
+                } else {
+                    start = res.find(MARKER_SOURCE_C);
+                    if (start != std::string::npos) {
+                        res.replace(start, MARKER_SOURCE_C.length(), MARKER_O);
+                    }  else {
+                        res = "";
+                    }
                 }
-                res.replace(start, MARKER_SOURCE.length(), MARKER_O);
                 return res;
             }
 

@@ -159,7 +159,7 @@
             FileList Folder::getSourceChild() const {
                 FileList res;
                 for (auto& e : childs) {
-                    if (e->isFile() && e->getName().find(MARKER_SOURCE) != std::string::npos) {
+                    if (e->isFile() && (e->getName().find(MARKER_SOURCE) != std::string::npos || e->getName().find(MARKER_SOURCE_C) != std::string::npos)) {
                         res.emplace_back(static_cast <File*> (e));
                     }
                 }
@@ -169,7 +169,7 @@
             FileList Folder::getHeaderChild() const {
                 FileList res;
                 for (auto& e : childs) {
-                    if (e->isFile() && e->getName().find(MARKER_HEADER) != std::string::npos) {
+                    if (e->isFile() && (e->getName().find(MARKER_HEADER) != std::string::npos || e->getName().find(MARKER_HEADER_C) != std::string::npos)) {
                         res.emplace_back(static_cast <File*> (e));
                     }
                 }
@@ -203,21 +203,41 @@
                 return path;
             }
 
-            bool Folder::sourceHasHeader() const {
-                FileList sources = getSourceChild();
-                FileList headers = getHeaderChild();
-                bool find = true;
+            bool Folder::hasCppSource() const {
+                bool find = false;
                 std::size_t cnt = 0;
-                while (find && cnt < sources.size()) {
-                    bool hasHeader = false;
-                    std::size_t cntH = 0;
-                    std::string srcName = sources[cnt]->getName();
-                    srcName.replace(srcName.find(MARKER_SOURCE), MARKER_SOURCE.length(), "");
-                    while (!hasHeader && cntH < headers.size()) {
-                        hasHeader = headers[cntH]->getName().find(srcName) != std::string::npos;
-                        cntH++;
-                    }
-                    find = hasHeader;
+                while (!find && cnt < childs.size()) {
+                    find = childs[cnt]->isFile() && childs[cnt]->getName().find(MARKER_SOURCE) != std::string::npos;
+                    cnt++;
+                }
+                return find;
+            }
+
+            bool Folder::hasCppHeader() const {
+                bool find = false;
+                std::size_t cnt = 0;
+                while (!find && cnt < childs.size()) {
+                    find = childs[cnt]->isFile() && childs[cnt]->getName().find(MARKER_HEADER) != std::string::npos;
+                    cnt++;
+                }
+                return find;
+            }
+
+            bool Folder::hasCSource() const {
+                bool find = false;
+                std::size_t cnt = 0;
+                while (!find && cnt < childs.size()) {
+                    find = childs[cnt]->isFile() && childs[cnt]->getName().find(MARKER_SOURCE_C) != std::string::npos && childs[cnt]->getName().find(MARKER_SOURCE) == std::string::npos;
+                    cnt++;
+                }
+                return find;
+            }
+
+            bool Folder::hasCHeader() const {
+                bool find = false;
+                std::size_t cnt = 0;
+                while (!find && cnt < childs.size()) {
+                    find = childs[cnt]->isFile() && childs[cnt]->getName().find(MARKER_HEADER_C) != std::string::npos && childs[cnt]->getName().find(MARKER_HEADER) == std::string::npos;
                     cnt++;
                 }
                 return find;
@@ -261,9 +281,18 @@
             }
 
             void Folder::insertFileCall(std::ofstream& file) const {
-                file << CALL_OBJDIR << '%' << MARKER_O << " : %" << MARKER_SOURCE;
-                if (sourceHasHeader()) {
+                file << CALL_OBJDIR << '%' << MARKER_O << " : ";
+                if (hasCppSource()) {
+                    file << " %" << MARKER_SOURCE;
+                }
+                if (hasCppHeader()) {
                     file << " %" << MARKER_HEADER;
+                }
+                if (hasCSource()) {
+                    file << " %" << MARKER_SOURCE_C;
+                }
+                if (hasCHeader()) {
+                    file << " %" << MARKER_HEADER_C;
                 }
                 file << "\n\t@" << CALL_COMPILER << " -o $@ -c $< " << CALL_CFLAGS << " " << CALL_INC;
             }

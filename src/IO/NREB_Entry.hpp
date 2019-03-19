@@ -88,6 +88,8 @@
                     static const std::string MARKER_OBJ;
                     static const std::string MARKER_SRC;
                     static const std::string MARKER_SOURCE;
+                    static const std::string MARKER_SOURCE_C;
+                    static const std::string MARKER_HEADER_C;
                     static const std::string MARKER_O;
                     static const std::string MARKER_OBJDIR;
                     static const std::string START_CALL;
