@@ -4,7 +4,7 @@
      * @brief Declaration of Builder's IO's Object : Folder
      * @author Louis ABEL
      * @date 18/03/2019
-     * @copyright GNU GPL v3
+     * @copyright CC-BY-NC-SA
      */
 
     #include <vector>
