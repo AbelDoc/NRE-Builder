@@ -33,24 +33,26 @@
             }
 
             void Folder::createMakefile(FileList& files, FolderList& folders) const {
-                std::ofstream makefile(MARKER_SRC + getPath() + MAKEFILE);
-                bool hasFile = hasFileChild();
-                bool hasFolder = hasFolderChild();
-                if (hasFile) {
-                    insertFileChilds(makefile, files);
-                }
-                if (hasFolder) {
-                    insertFolderChilds(makefile, folders);
-                }
-                insertTarget(makefile, hasFolder, hasFile);
-                if (hasFolder) {
-                    insertFolderCalls(makefile);
-                }
-                if (hasFile) {
-                    insertFileCall(makefile);
-                }
-                for (auto& f : getFolderChild()) {
-                    f->createMakefile(files, folders);
+                if (hasDeepSources()) {
+                    std::ofstream makefile(MARKER_SRC + getPath() + MAKEFILE);
+                    bool hasFile = hasFileChild();
+                    bool hasFolder = hasFolderChild();
+                    if (hasFile) {
+                        insertFileChilds(makefile, files);
+                    }
+                    if (hasFolder) {
+                        insertFolderChilds(makefile, folders);
+                    }
+                    insertTarget(makefile, hasFolder, hasFile);
+                    if (hasFolder) {
+                        insertFolderCalls(makefile);
+                    }
+                    if (hasFile) {
+                        insertFileCall(makefile);
+                    }
+                    for (auto& f : getFolderChild()) {
+                        f->createMakefile(files, folders);
+                    }
                 }
             }
 
@@ -148,12 +150,36 @@
                 return find;
             }
 
+            bool Folder::hasDeepSources() const {
+                bool find = notOnlyHeaders();
+                if (!find) {
+                    for (auto& e : childs) {
+                        if (e->isFolder()) {
+                            find = find || static_cast <Folder*> (e)->hasDeepSources();
+                        }
+                    }
+                }
+                return find;
+            }
+
             bool Folder::isFile() const {
                 return false;
             }
 
             bool Folder::isFolder() const {
                 return true;
+            }
+
+            bool Folder::notOnlyHeaders() const {
+                bool res = false;
+                for (auto& e : childs) {
+                    if (e->isFile()) {
+                        if (e->getName().find(MARKER_SOURCE) != std::string::npos || e->getName().find(MARKER_SOURCE_C) != std::string::npos) {
+                            res = true;
+                        }
+                    }
+                }
+                return res;
             }
 
             FileList Folder::getSourceChild() const {
@@ -255,8 +281,10 @@
 
             void Folder::insertFolderChilds(std::ofstream& file, FolderList& folders) const {
                 for (auto& f : getFolderChild()) {
-                    file << f->getUpperName() << " = " << f->getName() << '\n';
-                    folders.push_back(f);
+                    if (f->hasDeepSources()) {
+                        file << f->getUpperName() << " = " << f->getName() << '\n';
+                        folders.push_back(f);
+                    }
                 }
                 file << '\n';
             }
@@ -275,7 +303,9 @@
             void Folder::insertFolderCalls(std::ofstream& file) const {
                 file << MARKER_CHILDS << ":\n";
                 for (auto& f : getFolderChild()) {
-                    file << "\t@(cd $(" << f->getUpperName() << ") && $(MAKE))\n";
+                    if (f->hasDeepSources()) {
+                        file << "\t@(cd $(" << f->getUpperName() << ") && $(MAKE))\n";
+                    }
                 }
                 file << '\n';
             }

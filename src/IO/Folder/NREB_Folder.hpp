@@ -51,6 +51,10 @@
 
                     //## Methods ##//
                         /**
+                         * Analyse the folder
+                         */
+                        void analyse();
+                        /**
                          * Create the entry corresponding makefile
                          * @param files   list containing all explorated files
                          * @param folders list containing all explorated folders
@@ -71,6 +75,10 @@
                          */
                         bool hasFolderChild() const;
                         /**
+                         * @return if the entry has deep sources
+                         */
+                        bool hasDeepSources() const;
+                        /**
                          * @return if the entry is a file
                          */
                         bool isFile() const override;
@@ -78,6 +86,10 @@
                          * @return if the folder is a folder
                          */
                         bool isFolder() const override;
+                        /**
+                         * @return if the folder is not only composed of headers
+                         */
+                        bool notOnlyHeaders() const;
                         /**
                          * Get all source file child in a vector
                          * @return the child's vector
