@@ -38,7 +38,6 @@
             const std::string Entry::CALL_OBJDIR     = START_CALL + MARKER_OBJDIR + END_CALL;
             const std::string Entry::CALL_OBJ        = START_CALL + MARKER_OBJ + END_CALL;
             const std::string Entry::MAKEFILE        = "Makefile";
-            const std::string Entry::CONFIG          = "config.nre";
             const std::string Entry::TAG_COMPILER    = "compiler=";
             const std::string Entry::TAG_LINKER      = "linker=";
             const std::string Entry::TAG_CFLAGS      = "cflags=";

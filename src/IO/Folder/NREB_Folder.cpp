@@ -56,11 +56,11 @@
                 }
             }
 
-            void Folder::createProjectMakefile(FileList& files, FolderList& folders) const {
+            void Folder::createProjectMakefile(FileList& files, FolderList& folders, std::string const& configPath) const {
                 std::ofstream makefile(MAKEFILE);
-                std::ifstream config(CONFIG);
+                std::ifstream config(configPath);
                 if (config.fail()) {
-                    std::cout << "Missing or Corrupted config file" << std::endl;
+                    std::cout << configPath << " : Missing or Corrupted config file" << std::endl;
                 }
                 std::string compiler, linker, cFlags, lFlags, includes, libs, libDir, out, current;
                 std::getline(config, compiler);

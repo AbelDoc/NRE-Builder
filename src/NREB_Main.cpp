@@ -16,12 +16,16 @@
         if (argc == 2) {
             if (std::string(argv[1]) == "-h" || std::string(argv[1]) == "-help") {
                 std::cout << "Usage : \n";
-                std::cout << "./NRE-Builder.exe [-a|-analyse|-c|-create]\n";
+                std::cout << "./NRE-Builder.exe [-a|-analyse|-c|-create] [-s=|-switch=]\n";
                 std::cout << "\t-a|-analyse\n";
                 std::cout << "\tAnalyse the src directory and regenerate all makefile\n";
                 std::cout << "\tIf no option is specified, analyse is the default one\n\n";
                 std::cout << "\t-c|-create\n";
-                std::cout << "\tCreate a new project with base directory and makefile\n" << std::endl;
+                std::cout << "\tCreate a new project with base directory and makefile\n\n";
+                std::cout << "\t-s=|-switch=\n";
+                std::cout << "\tAllow to change configuration file at execution :\n";
+                std::cout << "\t\t-s=linux\n";
+                std::cout << "\tWill search for config.linux.nre file for the configuration" << std::endl;
             } else if (std::string(argv[1]) == "-c" || std::string(argv[1]) == "-create") {
                 FileSystem::create_directories("src");
                 FileSystem::create_directories("bin");
@@ -32,7 +36,7 @@
             }
         }
 
-        if (argc == 1 || (argc == 2 && (std::string(argv[1]) == "-a" || std::string(argv[1]) == "-analyse" || std::string(argv[1]) == "-c" || std::string(argv[1]) == "-create"))) {
+        if (argc == 1 || (argc >= 2 && (std::string(argv[1]) == "-a" || std::string(argv[1]) == "-analyse" || std::string(argv[1]) == "-c" || std::string(argv[1]) == "-create"))) {
             FileSystem::create_directories("src");
             NREB::IO::Folder src("src");
 
@@ -40,7 +44,17 @@
             NREB::IO::FolderList folders;
 
             src.createMakefile(files, folders);
-            src.createProjectMakefile(files, folders);
+            std::string config("config.nre");
+            if (argc == 3) {
+                std::string ext(argv[2]);
+                if (ext.find("-s=") != std::string::npos) {
+                    config = "config." + ext.substr(3) + ".nre";
+                }
+                if (ext.find("-switch=") != std::string::npos) {
+                    config = "config." + ext.substr(8) + ".nre";
+                }
+            }
+            src.createProjectMakefile(files, folders, config);
         }
 
         return 0;

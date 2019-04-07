@@ -62,10 +62,11 @@
                         void createMakefile(FileList& files, FolderList& folders) const;
                         /**
                          * Create the project main makefile
-                         * @param files   list containing all explorated files
-                         * @param folders list containing all explorated folders
+                         * @param files      list containing all explorated files
+                         * @param folders    list containing all explorated folders
+                         * @param configPath the configuration file's path
                          */
-                        void createProjectMakefile(FileList& files, FolderList& folders) const;
+                        void createProjectMakefile(FileList& files, FolderList& folders, std::string const& configPath) const;
                         /**
                          * @return if the entry has file childs
                          */
