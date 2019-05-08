@@ -15,6 +15,7 @@
             std::string Config::configFilePath = "";
             const std::string Config::TAG_COMPILER    = "compiler=";
             const std::string Config::TAG_LINKER      = "linker=";
+            const std::string Config::TAG_ARCHIVER    = "archiver=";
             const std::string Config::TAG_CFLAGS      = "cflags=";
             const std::string Config::TAG_LDFLAGS     = "ldflags=";
             const std::string Config::TAG_INC         = "includes=";
@@ -32,6 +33,7 @@
                 std::string includesLine, libsLine, libDirsLine, excludedLine, current;
                 std::getline(config, compiler);
                 std::getline(config, linker);
+                std::getline(config, archiver);
                 std::getline(config, cFlags);
                 std::getline(config, ldFlags);
                 std::getline(config, includesLine);
@@ -65,6 +67,7 @@
             void Config::removeTags(std::string& includesLine, std::string& libsLine, std::string& libDirsLine, std::string& excludedLine) {
                 compiler.replace(0, TAG_COMPILER.length(), "");
                 linker.replace(0, TAG_LINKER.length(), "");
+                archiver.replace(0, TAG_ARCHIVER.length(), "");
                 cFlags.replace(0, TAG_CFLAGS.length(), "");
                 ldFlags.replace(0, TAG_LDFLAGS.length(), "");
                 includesLine.replace(0, TAG_INC.length(), "");
@@ -80,6 +83,10 @@
 
             std::string const& Config::getLinker() const {
                 return linker;
+            }
+
+            std::string const& Config::getArchiver() const {
+                return archiver;
             }
 
             std::string const& Config::getCFlags() const {

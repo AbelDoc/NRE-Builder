@@ -69,6 +69,11 @@
                          */
                         void createProjectMakefile(FileList& files, FolderList& folders) const;
                         /**
+                         * Create a bash script to create object archive
+                         * @param files list containing all explorated files
+                         */
+                        void createArchiverScript(FileList& files) const;
+                        /**
                          * @return if the entry has file childs
                          */
                         bool hasFileChild() const;

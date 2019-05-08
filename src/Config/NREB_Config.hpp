@@ -34,6 +34,7 @@
                 private :   // Fields
                     std::string compiler;
                     std::string linker;
+                    std::string archiver;
                     std::string cFlags;
                     std::string ldFlags;
                     std::string out;
@@ -78,6 +79,10 @@
                          * @return the configuration linker
                          */
                         std::string const& getLinker() const;
+                        /**
+                         * @return the configuration archiver
+                         */
+                        std::string const& getArchiver() const;
                         /**
                          * @return the configuration cFlags
                          */
@@ -153,6 +158,7 @@
                 public :     // Static
                     static const std::string TAG_COMPILER;
                     static const std::string TAG_LINKER;
+                    static const std::string TAG_ARCHIVER;
                     static const std::string TAG_CFLAGS;
                     static const std::string TAG_LDFLAGS;
                     static const std::string TAG_INC;

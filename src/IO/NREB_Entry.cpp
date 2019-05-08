@@ -38,6 +38,7 @@
             const std::string Entry::CALL_OBJDIR     = START_CALL + MARKER_OBJDIR + END_CALL;
             const std::string Entry::CALL_OBJ        = START_CALL + MARKER_OBJ + END_CALL;
             const std::string Entry::MAKEFILE        = "Makefile";
+            const std::string Entry::ARCHIVER        = "archive.sh";
 
             Entry::Entry(std::string const& n, Entry* p) : name(n), parent(p) {
                 std::size_t it = name.find("\\");

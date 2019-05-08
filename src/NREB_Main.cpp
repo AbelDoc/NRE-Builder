@@ -30,6 +30,7 @@
             } else if (std::string(argv[1]) == "-c" || std::string(argv[1]) == "-create") {
                 FileSystem::create_directories("src");
                 FileSystem::create_directories("bin");
+                FileSystem::create_directories("lib");
                 FileSystem::create_directories("obj");
                 FileSystem::create_directories("docs");
                 FileSystem::create_directories("uml");
@@ -58,6 +59,7 @@
 
             src.createMakefile(files, folders);
             src.createProjectMakefile(files, folders);
+            src.createArchiverScript(files);
         }
 
         return 0;

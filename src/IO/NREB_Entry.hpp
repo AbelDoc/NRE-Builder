@@ -100,6 +100,7 @@
                     static const std::string CALL_OBJDIR;
                     static const std::string CALL_OBJ;
                     static const std::string MAKEFILE;
+                    static const std::string ARCHIVER;
             };
 
             class File;
