@@ -100,14 +100,6 @@
                     static const std::string CALL_OBJDIR;
                     static const std::string CALL_OBJ;
                     static const std::string MAKEFILE;
-                    static const std::string TAG_COMPILER;
-                    static const std::string TAG_LINKER;
-                    static const std::string TAG_CFLAGS;
-                    static const std::string TAG_LDFLAGS;
-                    static const std::string TAG_INC;
-                    static const std::string TAG_LIB;
-                    static const std::string TAG_LIBDIR;
-                    static const std::string TAG_OUT;
             };
 
             class File;

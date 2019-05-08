@@ -17,7 +17,7 @@
             Folder::Folder(std::string const& n, Entry* p) : Entry(n, p) {
                 for (auto& path : FileSystem::directory_iterator(n)) {
                     if (FileSystem::is_regular_file(path.symlink_status())) {
-                        if (path.path().string().find(MAKEFILE) == std::string::npos) {
+                        if (path.path().string().find(MAKEFILE) == std::string::npos && !isExcluded(path.path().string())) {
                             childs.emplace_back(new File(path.path().string(), this));
                         }
                     } else {
@@ -56,52 +56,30 @@
                 }
             }
 
-            void Folder::createProjectMakefile(FileList& files, FolderList& folders, std::string const& configPath) const {
+            void Folder::createProjectMakefile(FileList& files, FolderList& folders) const {
                 std::ofstream makefile(MAKEFILE);
-                std::ifstream config(configPath);
-                if (config.fail()) {
-                    std::cout << configPath << " : Missing or Corrupted config file" << std::endl;
-                }
-                std::string compiler, linker, cFlags, lFlags, includes, libs, libDir, out, current;
-                std::getline(config, compiler);
-                std::getline(config, linker);
-                std::getline(config, cFlags);
-                std::getline(config, lFlags);
-                std::getline(config, includes);
-                std::getline(config, libs);
-                std::getline(config, libDir);
-                std::getline(config, out);
-                compiler.replace(0, TAG_COMPILER.length(), "");
-                linker.replace(0, TAG_LINKER.length(), "");
-                cFlags.replace(0, TAG_CFLAGS.length(), "");
-                lFlags.replace(0, TAG_LDFLAGS.length(), "");
-                includes.replace(0, TAG_INC.length(), "");
-                libs.replace(0, TAG_LIB.length(), "");
-                libDir.replace(0, TAG_LIBDIR.length(), "");
-                out.replace(0, TAG_OUT.length(), "");
 
-                makefile << "export " << MARKER_COMPILER << " = " << compiler << '\n';
-                makefile << "export " << MARKER_LINKER << " = " << linker << "\n\n";
-                makefile << "export " << MARKER_CFLAGS << " = " << cFlags << '\n';
-                makefile << "export " << MARKER_LDFLAGS << " = " << lFlags << "\n\n";
+                const Config::Config& config = Config::Config::getConfig();
+
+                makefile << "export " << MARKER_COMPILER << " = " << config.getCompiler() << '\n';
+                makefile << "export " << MARKER_LINKER << " = " << config.getLinker() << "\n\n";
+                makefile << "export " << MARKER_CFLAGS << " = " << config.getCFlags() << '\n';
+                makefile << "export " << MARKER_LDFLAGS << " = " << config.getLdFlags() << "\n\n";
                 makefile << "export " << MARKER_INC << " = ";
 
-                std::stringstream parserInc(includes);
-                while (std::getline(parserInc, current, ' ')) {
+                for (std::string const& current : config.getIncludes()) {
                     makefile << "-I\"" << current << "\" ";
                 }
                 makefile << '\n';
                 makefile << "export " << MARKER_LIB << " = ";
 
-                std::stringstream parserLib(libs);
-                while (std::getline(parserLib, current, ' ')) {
+                for (std::string const& current : config.getLibs()) {
                     makefile << "\"" << current << "\" ";
                 }
                 makefile << '\n';
                 makefile << "export " << MARKER_LIBDIR << " = ";
 
-                std::stringstream parserLibDir(libDir);
-                while (std::getline(parserLibDir, current, ' ')) {
+                for (std::string const& current : config.getLibDirs()) {
                     makefile << "-L\"" << current << "\" ";
                 }
                 makefile << "\n\n";
@@ -113,7 +91,7 @@
                     makefile << CALL_OBJDIR << f->getObjectPath() << " ";
                 }
                 makefile << "\n";
-                makefile << "OUT = " << out << "\n\n";
+                makefile << "OUT = " << config.getOut() << "\n\n";
                 makefile << MARKER_TARGET << " : " << MARKER_CHILDS << " " << MARKER_OUT << "\n\n";
                 makefile << "childs :\n\t@(cd $(SRC) && $(MAKE))\n\n";
                 makefile << MARKER_OUT << " : " << CALL_OBJ << "\n";
@@ -325,6 +303,15 @@
                     file << " %" << MARKER_HEADER_C;
                 }
                 file << "\n\t@" << CALL_COMPILER << " -o $@ -c $< " << CALL_CFLAGS << " " << CALL_INC;
+            }
+
+            bool Folder::isExcluded(std::string const& path) {
+                for (std::string const& ex : Config::Config::getConfig().getExcluded()) {
+                    if (path.find(ex) != std::string::npos) {
+                        return true;
+                    }
+                }
+                return false;
             }
 
         }

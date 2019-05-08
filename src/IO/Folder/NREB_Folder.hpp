@@ -10,8 +10,10 @@
     #include <vector>
     #include <fstream>
     #include <sstream>
+
     #include "../NREB_Entry.hpp"
     #include "../File/NREB_File.hpp"
+    #include "../../Config/NREB_Config.hpp"
 
     #pragma once
 
@@ -62,11 +64,10 @@
                         void createMakefile(FileList& files, FolderList& folders) const;
                         /**
                          * Create the project main makefile
-                         * @param files      list containing all explorated files
-                         * @param folders    list containing all explorated folders
-                         * @param configPath the configuration file's path
+                         * @param files   list containing all explorated files
+                         * @param folders list containing all explorated folders
                          */
-                        void createProjectMakefile(FileList& files, FolderList& folders, std::string const& configPath) const;
+                        void createProjectMakefile(FileList& files, FolderList& folders) const;
                         /**
                          * @return if the entry has file childs
                          */
@@ -163,6 +164,12 @@
                          * @param file the file output
                          */
                         void insertFileCall(std::ofstream& file) const;
+                        /**
+                         * Check if a path is excluded
+                         * @param  path the path to check
+                         * @return      the test result
+                         */
+                        bool isExcluded(std::string const& path);
             };
         }
     }

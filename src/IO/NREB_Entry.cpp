@@ -38,14 +38,6 @@
             const std::string Entry::CALL_OBJDIR     = START_CALL + MARKER_OBJDIR + END_CALL;
             const std::string Entry::CALL_OBJ        = START_CALL + MARKER_OBJ + END_CALL;
             const std::string Entry::MAKEFILE        = "Makefile";
-            const std::string Entry::TAG_COMPILER    = "compiler=";
-            const std::string Entry::TAG_LINKER      = "linker=";
-            const std::string Entry::TAG_CFLAGS      = "cflags=";
-            const std::string Entry::TAG_LDFLAGS     = "ldflags=";
-            const std::string Entry::TAG_INC         = "includes=";
-            const std::string Entry::TAG_LIB         = "lib=";
-            const std::string Entry::TAG_LIBDIR      = "libdir=";
-            const std::string Entry::TAG_OUT         = "out=";
 
             Entry::Entry(std::string const& n, Entry* p) : name(n), parent(p) {
                 std::size_t it = name.find("\\");

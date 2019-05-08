@@ -11,7 +11,7 @@ export LIBDIR = -L"C:\lib\MinGW64_7.3\lib"
 OBJDIR = obj/
 BIN = bin/
 SRC = src
-OBJ = $(OBJDIR)NREB_Main.o $(OBJDIR)IO/NREB_Entry.o $(OBJDIR)IO/File/NREB_File.o $(OBJDIR)IO/Folder/NREB_Folder.o
+OBJ = $(OBJDIR)NREB_Main.o $(OBJDIR)Config/NREB_Config.o $(OBJDIR)IO/NREB_Entry.o $(OBJDIR)IO/File/NREB_File.o $(OBJDIR)IO/Folder/NREB_Folder.o
 OUT = NRE-Builder
 
 all : childs out
@@ -27,6 +27,7 @@ clean :
 	@echo "Clear of obj/"
 	@rm -r obj
 	@mkdir obj
+	@mkdir obj/Config/
 	@mkdir obj/IO/
 	@mkdir obj/IO/File/
 	@mkdir obj/IO/Folder/

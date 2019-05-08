@@ -6,3 +6,4 @@ includes=C:\lib\MinGW64_7.3\include
 lib=C:\lib\MinGW64_7.3\x86_64-w64-mingw32\lib\libmingw32.a
 libdir=C:\lib\MinGW64_7.3\lib
 out=NRE-Builder
+excluded=

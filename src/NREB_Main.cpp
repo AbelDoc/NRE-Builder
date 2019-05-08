@@ -9,6 +9,7 @@
 
     #include "IO/File/NREB_File.hpp"
     #include "IO/Folder/NREB_Folder.hpp"
+    #include "Config/NREB_Config.hpp"
 
     namespace FileSystem = std::experimental::filesystem;
 
@@ -37,13 +38,6 @@
         }
 
         if (argc == 1 || (argc >= 2 && (std::string(argv[1]) == "-a" || std::string(argv[1]) == "-analyse" || std::string(argv[1]) == "-c" || std::string(argv[1]) == "-create"))) {
-            FileSystem::create_directories("src");
-            NREB::IO::Folder src("src");
-
-            NREB::IO::FileList files;
-            NREB::IO::FolderList folders;
-
-            src.createMakefile(files, folders);
             std::string config("config.nre");
             if (argc == 3) {
                 std::string ext(argv[2]);
@@ -54,7 +48,16 @@
                     config = "config." + ext.substr(8) + ".nre";
                 }
             }
-            src.createProjectMakefile(files, folders, config);
+
+            NREB::Config::Config::setConfigPath(config);
+            FileSystem::create_directories("src");
+            NREB::IO::Folder src("src");
+
+            NREB::IO::FileList files;
+            NREB::IO::FolderList folders;
+
+            src.createMakefile(files, folders);
+            src.createProjectMakefile(files, folders);
         }
 
         return 0;
