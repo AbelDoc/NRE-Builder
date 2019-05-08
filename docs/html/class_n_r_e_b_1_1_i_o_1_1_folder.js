@@ -3,6 +3,7 @@ var class_n_r_e_b_1_1_i_o_1_1_folder =
     [ "Folder", "class_n_r_e_b_1_1_i_o_1_1_folder.html#a200d09d5cafa5f42733e0fdab3e6fbfb", null ],
     [ "~Folder", "class_n_r_e_b_1_1_i_o_1_1_folder.html#a11bb19b193b12f799278f26a3bfe941c", null ],
     [ "analyse", "class_n_r_e_b_1_1_i_o_1_1_folder.html#a284ee03f746161b570ecf36f632dce71", null ],
+    [ "createArchiverScript", "class_n_r_e_b_1_1_i_o_1_1_folder.html#ace15863411a6e09e9b91775893fbfee9", null ],
     [ "createMakefile", "class_n_r_e_b_1_1_i_o_1_1_folder.html#aa47e553e0a4a44d85a94c21b8d550945", null ],
     [ "createProjectMakefile", "class_n_r_e_b_1_1_i_o_1_1_folder.html#a08baae2c06c484da4a44564c7ede9f89", null ],
     [ "getBackwardPath", "class_n_r_e_b_1_1_i_o_1_1_folder.html#a8eb00c636e0a1f3e96746067627566c8", null ],

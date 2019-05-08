@@ -1,5 +1,6 @@
 var searchData=
 [
+  ['getarchiver',['getArchiver',['../class_n_r_e_b_1_1_config_1_1_config.html#af7b00b428875ad250fd54ba129d9fe96',1,'NREB::Config::Config']]],
   ['getbackwardpath',['getBackwardPath',['../class_n_r_e_b_1_1_i_o_1_1_folder.html#a8eb00c636e0a1f3e96746067627566c8',1,'NREB::IO::Folder']]],
   ['getcflags',['getCFlags',['../class_n_r_e_b_1_1_config_1_1_config.html#a55f90a2c51d3fb8ce33744b67c7179d7',1,'NREB::Config::Config']]],
   ['getcompiler',['getCompiler',['../class_n_r_e_b_1_1_config_1_1_config.html#a6a8104fae3f94bbe7b90c598d2e41f4a',1,'NREB::Config::Config']]],

@@ -121,6 +121,8 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:aa47e553e0a4a44d85a94c21b8d550945"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a08baae2c06c484da4a44564c7ede9f89"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_n_r_e_b_1_1_i_o_1_1_folder.html#a08baae2c06c484da4a44564c7ede9f89">createProjectMakefile</a> (FileList &amp;files, FolderList &amp;folders) const</td></tr>
 <tr class="separator:a08baae2c06c484da4a44564c7ede9f89"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ace15863411a6e09e9b91775893fbfee9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_n_r_e_b_1_1_i_o_1_1_folder.html#ace15863411a6e09e9b91775893fbfee9">createArchiverScript</a> (FileList &amp;files) const</td></tr>
+<tr class="separator:ace15863411a6e09e9b91775893fbfee9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a859c75400102b1b58614e439db1449b3"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_n_r_e_b_1_1_i_o_1_1_folder.html#a859c75400102b1b58614e439db1449b3">hasFileChild</a> () const</td></tr>
 <tr class="separator:a859c75400102b1b58614e439db1449b3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afab9521936b5386abca5e8f7de445587"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_n_r_e_b_1_1_i_o_1_1_folder.html#afab9521936b5386abca5e8f7de445587">hasFolderChild</a> () const</td></tr>
@@ -261,6 +263,9 @@ static const std::string&#160;</td><td class="memItemRight" valign="bottom"><b>C
 <tr class="memitem:aec0ffd465b3490329921711610c5db64 inherit pub_static_attribs_class_n_r_e_b_1_1_i_o_1_1_entry"><td class="memItemLeft" align="right" valign="top"><a id="aec0ffd465b3490329921711610c5db64"></a>
 static const std::string&#160;</td><td class="memItemRight" valign="bottom"><b>MAKEFILE</b> = &quot;Makefile&quot;</td></tr>
 <tr class="separator:aec0ffd465b3490329921711610c5db64 inherit pub_static_attribs_class_n_r_e_b_1_1_i_o_1_1_entry"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a41cda2dd60e1cb4a406dc720d5848926 inherit pub_static_attribs_class_n_r_e_b_1_1_i_o_1_1_entry"><td class="memItemLeft" align="right" valign="top"><a id="a41cda2dd60e1cb4a406dc720d5848926"></a>
+static const std::string&#160;</td><td class="memItemRight" valign="bottom"><b>ARCHIVER</b> = &quot;archive.sh&quot;</td></tr>
+<tr class="separator:a41cda2dd60e1cb4a406dc720d5848926 inherit pub_static_attribs_class_n_r_e_b_1_1_i_o_1_1_entry"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Represent a folder entry. </p>
@@ -334,6 +339,30 @@ static const std::string&#160;</td><td class="memItemRight" valign="bottom"><b>M
       </table>
 </div><div class="memdoc">
 <p>Analyse the folder </p>
+
+</div>
+</div>
+<a id="ace15863411a6e09e9b91775893fbfee9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ace15863411a6e09e9b91775893fbfee9">&#9670;&nbsp;</a></span>createArchiverScript()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void NREB::IO::Folder::createArchiverScript </td>
+          <td>(</td>
+          <td class="paramtype">FileList &amp;&#160;</td>
+          <td class="paramname"><em>files</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Create a bash script to create object archive </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">files</td><td>list containing all explorated files </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
