@@ -13,5 +13,9 @@
             Folder -- "*" Entry : childs
             File -up-|> Entry
         }
+        package Config {
+            class Config {
+            }
+        }
     }
 @enduml

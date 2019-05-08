@@ -34,6 +34,7 @@ For the builder to correctly analyse the project you need to configurate it corr
     * _**lib**_ : Library for the project, same format as includes
     * _**libdir**_ : Library directories for the project, same format as includes
     * _**out**_ : The out binaries name
+    * _**excluded**_ : Path or word (separated by a whitespace) excluded from the build, every file contaning one of this word/path will be excluded from makefile generation
 
 ### Multiple Configuration
 __./NRE-Builder.exe -a -s=XXX__  
