@@ -119,8 +119,8 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a284ee03f746161b570ecf36f632dce71"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa47e553e0a4a44d85a94c21b8d550945"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_n_r_e_b_1_1_i_o_1_1_folder.html#aa47e553e0a4a44d85a94c21b8d550945">createMakefile</a> (FileList &amp;files, FolderList &amp;folders) const</td></tr>
 <tr class="separator:aa47e553e0a4a44d85a94c21b8d550945"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad329ad17121705588ca6df7fe87418a0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_n_r_e_b_1_1_i_o_1_1_folder.html#ad329ad17121705588ca6df7fe87418a0">createProjectMakefile</a> (FileList &amp;files, FolderList &amp;folders, std::string const &amp;configPath) const</td></tr>
-<tr class="separator:ad329ad17121705588ca6df7fe87418a0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a08baae2c06c484da4a44564c7ede9f89"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_n_r_e_b_1_1_i_o_1_1_folder.html#a08baae2c06c484da4a44564c7ede9f89">createProjectMakefile</a> (FileList &amp;files, FolderList &amp;folders) const</td></tr>
+<tr class="separator:a08baae2c06c484da4a44564c7ede9f89"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a859c75400102b1b58614e439db1449b3"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_n_r_e_b_1_1_i_o_1_1_folder.html#a859c75400102b1b58614e439db1449b3">hasFileChild</a> () const</td></tr>
 <tr class="separator:a859c75400102b1b58614e439db1449b3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afab9521936b5386abca5e8f7de445587"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_n_r_e_b_1_1_i_o_1_1_folder.html#afab9521936b5386abca5e8f7de445587">hasFolderChild</a> () const</td></tr>
@@ -163,6 +163,8 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a80a8b3382b7ad0bb91e58f822e4cdba1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2e76f06d68c0b96eb86c1e331c3afb1d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_n_r_e_b_1_1_i_o_1_1_folder.html#a2e76f06d68c0b96eb86c1e331c3afb1d">insertFileCall</a> (std::ofstream &amp;file) const</td></tr>
 <tr class="separator:a2e76f06d68c0b96eb86c1e331c3afb1d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa93c5fb7382942b52ac2a4045a963346"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_n_r_e_b_1_1_i_o_1_1_folder.html#aa93c5fb7382942b52ac2a4045a963346">isExcluded</a> (std::string const &amp;path)</td></tr>
+<tr class="separator:aa93c5fb7382942b52ac2a4045a963346"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_class_n_r_e_b_1_1_i_o_1_1_entry"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_class_n_r_e_b_1_1_i_o_1_1_entry')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="class_n_r_e_b_1_1_i_o_1_1_entry.html">NREB::IO::Entry</a></td></tr>
 <tr class="memitem:a7e00f70497859302b2a3b4219a642463 inherit pub_methods_class_n_r_e_b_1_1_i_o_1_1_entry"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_n_r_e_b_1_1_i_o_1_1_entry.html#a7e00f70497859302b2a3b4219a642463">Entry</a> (std::string const &amp;n, <a class="el" href="class_n_r_e_b_1_1_i_o_1_1_entry.html">Entry</a> *p=nullptr)</td></tr>
 <tr class="separator:a7e00f70497859302b2a3b4219a642463 inherit pub_methods_class_n_r_e_b_1_1_i_o_1_1_entry"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -259,30 +261,6 @@ static const std::string&#160;</td><td class="memItemRight" valign="bottom"><b>C
 <tr class="memitem:aec0ffd465b3490329921711610c5db64 inherit pub_static_attribs_class_n_r_e_b_1_1_i_o_1_1_entry"><td class="memItemLeft" align="right" valign="top"><a id="aec0ffd465b3490329921711610c5db64"></a>
 static const std::string&#160;</td><td class="memItemRight" valign="bottom"><b>MAKEFILE</b> = &quot;Makefile&quot;</td></tr>
 <tr class="separator:aec0ffd465b3490329921711610c5db64 inherit pub_static_attribs_class_n_r_e_b_1_1_i_o_1_1_entry"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9b588f0a5919f21eb85e48a1b89d97b1 inherit pub_static_attribs_class_n_r_e_b_1_1_i_o_1_1_entry"><td class="memItemLeft" align="right" valign="top"><a id="a9b588f0a5919f21eb85e48a1b89d97b1"></a>
-static const std::string&#160;</td><td class="memItemRight" valign="bottom"><b>TAG_COMPILER</b> = &quot;compiler=&quot;</td></tr>
-<tr class="separator:a9b588f0a5919f21eb85e48a1b89d97b1 inherit pub_static_attribs_class_n_r_e_b_1_1_i_o_1_1_entry"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a135e581766f34ae2adae1cf1ad7e6def inherit pub_static_attribs_class_n_r_e_b_1_1_i_o_1_1_entry"><td class="memItemLeft" align="right" valign="top"><a id="a135e581766f34ae2adae1cf1ad7e6def"></a>
-static const std::string&#160;</td><td class="memItemRight" valign="bottom"><b>TAG_LINKER</b> = &quot;linker=&quot;</td></tr>
-<tr class="separator:a135e581766f34ae2adae1cf1ad7e6def inherit pub_static_attribs_class_n_r_e_b_1_1_i_o_1_1_entry"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3441d983123e83e9937e634b20d42c0f inherit pub_static_attribs_class_n_r_e_b_1_1_i_o_1_1_entry"><td class="memItemLeft" align="right" valign="top"><a id="a3441d983123e83e9937e634b20d42c0f"></a>
-static const std::string&#160;</td><td class="memItemRight" valign="bottom"><b>TAG_CFLAGS</b> = &quot;cflags=&quot;</td></tr>
-<tr class="separator:a3441d983123e83e9937e634b20d42c0f inherit pub_static_attribs_class_n_r_e_b_1_1_i_o_1_1_entry"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a93e30e27ff2eacff960d5aebe38be271 inherit pub_static_attribs_class_n_r_e_b_1_1_i_o_1_1_entry"><td class="memItemLeft" align="right" valign="top"><a id="a93e30e27ff2eacff960d5aebe38be271"></a>
-static const std::string&#160;</td><td class="memItemRight" valign="bottom"><b>TAG_LDFLAGS</b> = &quot;ldflags=&quot;</td></tr>
-<tr class="separator:a93e30e27ff2eacff960d5aebe38be271 inherit pub_static_attribs_class_n_r_e_b_1_1_i_o_1_1_entry"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5d699f47e65bfe14b5a40a041fb4adf1 inherit pub_static_attribs_class_n_r_e_b_1_1_i_o_1_1_entry"><td class="memItemLeft" align="right" valign="top"><a id="a5d699f47e65bfe14b5a40a041fb4adf1"></a>
-static const std::string&#160;</td><td class="memItemRight" valign="bottom"><b>TAG_INC</b> = &quot;includes=&quot;</td></tr>
-<tr class="separator:a5d699f47e65bfe14b5a40a041fb4adf1 inherit pub_static_attribs_class_n_r_e_b_1_1_i_o_1_1_entry"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0127793174a38282cad2deff137dd883 inherit pub_static_attribs_class_n_r_e_b_1_1_i_o_1_1_entry"><td class="memItemLeft" align="right" valign="top"><a id="a0127793174a38282cad2deff137dd883"></a>
-static const std::string&#160;</td><td class="memItemRight" valign="bottom"><b>TAG_LIB</b> = &quot;lib=&quot;</td></tr>
-<tr class="separator:a0127793174a38282cad2deff137dd883 inherit pub_static_attribs_class_n_r_e_b_1_1_i_o_1_1_entry"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af813fd50f35cbaecc267425ca39197bc inherit pub_static_attribs_class_n_r_e_b_1_1_i_o_1_1_entry"><td class="memItemLeft" align="right" valign="top"><a id="af813fd50f35cbaecc267425ca39197bc"></a>
-static const std::string&#160;</td><td class="memItemRight" valign="bottom"><b>TAG_LIBDIR</b> = &quot;libdir=&quot;</td></tr>
-<tr class="separator:af813fd50f35cbaecc267425ca39197bc inherit pub_static_attribs_class_n_r_e_b_1_1_i_o_1_1_entry"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af4323a5a2fedf212115de1211cc07b41 inherit pub_static_attribs_class_n_r_e_b_1_1_i_o_1_1_entry"><td class="memItemLeft" align="right" valign="top"><a id="af4323a5a2fedf212115de1211cc07b41"></a>
-static const std::string&#160;</td><td class="memItemRight" valign="bottom"><b>TAG_OUT</b> = &quot;out=&quot;</td></tr>
-<tr class="separator:af4323a5a2fedf212115de1211cc07b41 inherit pub_static_attribs_class_n_r_e_b_1_1_i_o_1_1_entry"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Represent a folder entry. </p>
@@ -394,8 +372,8 @@ static const std::string&#160;</td><td class="memItemRight" valign="bottom"><b>T
 
 </div>
 </div>
-<a id="ad329ad17121705588ca6df7fe87418a0"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad329ad17121705588ca6df7fe87418a0">&#9670;&nbsp;</a></span>createProjectMakefile()</h2>
+<a id="a08baae2c06c484da4a44564c7ede9f89"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a08baae2c06c484da4a44564c7ede9f89">&#9670;&nbsp;</a></span>createProjectMakefile()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -410,13 +388,7 @@ static const std::string&#160;</td><td class="memItemRight" valign="bottom"><b>T
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">FolderList &amp;&#160;</td>
-          <td class="paramname"><em>folders</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">std::string const &amp;&#160;</td>
-          <td class="paramname"><em>configPath</em>&#160;</td>
+          <td class="paramname"><em>folders</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -429,7 +401,6 @@ static const std::string&#160;</td><td class="memItemRight" valign="bottom"><b>T
   <table class="params">
     <tr><td class="paramname">files</td><td>list containing all explorated files </td></tr>
     <tr><td class="paramname">folders</td><td>list containing all explorated folders </td></tr>
-    <tr><td class="paramname">configPath</td><td>the configuration file's path </td></tr>
   </table>
   </dd>
 </dl>
@@ -827,6 +798,31 @@ static const std::string&#160;</td><td class="memItemRight" valign="bottom"><b>T
   </table>
   </dd>
 </dl>
+
+</div>
+</div>
+<a id="aa93c5fb7382942b52ac2a4045a963346"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa93c5fb7382942b52ac2a4045a963346">&#9670;&nbsp;</a></span>isExcluded()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool NREB::IO::Folder::isExcluded </td>
+          <td>(</td>
+          <td class="paramtype">std::string const &amp;&#160;</td>
+          <td class="paramname"><em>path</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Check if a path is excluded </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">path</td><td>the path to check </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>the test result </dd></dl>
 
 </div>
 </div>

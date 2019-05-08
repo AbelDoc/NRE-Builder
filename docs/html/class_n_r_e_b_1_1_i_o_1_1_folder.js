@@ -4,7 +4,7 @@ var class_n_r_e_b_1_1_i_o_1_1_folder =
     [ "~Folder", "class_n_r_e_b_1_1_i_o_1_1_folder.html#a11bb19b193b12f799278f26a3bfe941c", null ],
     [ "analyse", "class_n_r_e_b_1_1_i_o_1_1_folder.html#a284ee03f746161b570ecf36f632dce71", null ],
     [ "createMakefile", "class_n_r_e_b_1_1_i_o_1_1_folder.html#aa47e553e0a4a44d85a94c21b8d550945", null ],
-    [ "createProjectMakefile", "class_n_r_e_b_1_1_i_o_1_1_folder.html#ad329ad17121705588ca6df7fe87418a0", null ],
+    [ "createProjectMakefile", "class_n_r_e_b_1_1_i_o_1_1_folder.html#a08baae2c06c484da4a44564c7ede9f89", null ],
     [ "getBackwardPath", "class_n_r_e_b_1_1_i_o_1_1_folder.html#a8eb00c636e0a1f3e96746067627566c8", null ],
     [ "getFolderChild", "class_n_r_e_b_1_1_i_o_1_1_folder.html#ab2e77863e2711e5aa2e2ae079a5a0244", null ],
     [ "getHeaderChild", "class_n_r_e_b_1_1_i_o_1_1_folder.html#ab776df9d47d7548f60c1771769924e6c", null ],
@@ -23,6 +23,7 @@ var class_n_r_e_b_1_1_i_o_1_1_folder =
     [ "insertFolderCalls", "class_n_r_e_b_1_1_i_o_1_1_folder.html#a80a8b3382b7ad0bb91e58f822e4cdba1", null ],
     [ "insertFolderChilds", "class_n_r_e_b_1_1_i_o_1_1_folder.html#aae04c1fd483208dfb3c3e713eb27a8c5", null ],
     [ "insertTarget", "class_n_r_e_b_1_1_i_o_1_1_folder.html#a3e180253efae5c18a32bafa826a0b92b", null ],
+    [ "isExcluded", "class_n_r_e_b_1_1_i_o_1_1_folder.html#aa93c5fb7382942b52ac2a4045a963346", null ],
     [ "isFile", "class_n_r_e_b_1_1_i_o_1_1_folder.html#ac2debe1b29d81be9bd73adbee77aaced", null ],
     [ "isFolder", "class_n_r_e_b_1_1_i_o_1_1_folder.html#a4116a6ce5749b71129dfe45dc7e1598f", null ],
     [ "notOnlyHeaders", "class_n_r_e_b_1_1_i_o_1_1_folder.html#aeab28f0073a9ca5e815e0c16c2d0e911", null ]
