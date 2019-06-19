@@ -24,7 +24,6 @@
             const std::string Entry::MARKER_OUT      = "out";
             const std::string Entry::MARKER_TARGET   = "all";
             const std::string Entry::MARKER_OBJ      = "OBJ";
-            const std::string Entry::MARKER_SRC      = "src";
             const std::string Entry::MARKER_SOURCE   = ".cpp";
             const std::string Entry::MARKER_SOURCE_C = ".c";
             const std::string Entry::MARKER_HEADER_C = ".h";

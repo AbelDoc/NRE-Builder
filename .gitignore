@@ -1,4 +1,5 @@
 bin/*
 obj/*
 !bin/config.nre
+!bin/config.test.nre
 !bin/NRE-Builder.exe

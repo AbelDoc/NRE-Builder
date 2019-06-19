@@ -32,9 +32,9 @@
                 }
             }
 
-            void Folder::createMakefile(FileList& files, FolderList& folders) const {
+            void Folder::createMakefile(FileList& files, FolderList& folders, std::string const& src) const {
                 if (hasDeepSources()) {
-                    std::ofstream makefile(MARKER_SRC + getPath() + MAKEFILE);
+                    std::ofstream makefile(src + getPath() + MAKEFILE);
                     bool hasFile = hasFileChild();
                     bool hasFolder = hasFolderChild();
                     if (hasFile) {
@@ -51,12 +51,12 @@
                         insertFileCall(makefile);
                     }
                     for (auto& f : getFolderChild()) {
-                        f->createMakefile(files, folders);
+                        f->createMakefile(files, folders, src);
                     }
                 }
             }
 
-            void Folder::createProjectMakefile(FileList& files, FolderList& folders) const {
+            void Folder::createProjectMakefile(FileList& files, FolderList& folders, std::string const& src) const {
                 std::ofstream makefile(MAKEFILE);
 
                 const Config::Config& config = Config::Config::getConfig();
@@ -85,7 +85,7 @@
                 makefile << "\n\n";
                 makefile << MARKER_OBJDIR << " = obj/\n";
                 makefile << MARKER_BIN << " = bin/\n";
-                makefile << "SRC = " << MARKER_SRC << "\n";
+                makefile << "SRC = " << src << "\n";
                 makefile << MARKER_OBJ << " = ";
                 for (File* f : files) {
                     makefile << CALL_OBJDIR << f->getObjectPath() << " ";

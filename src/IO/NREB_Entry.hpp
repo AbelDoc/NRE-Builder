@@ -86,7 +86,6 @@
                     static const std::string MARKER_OUT;
                     static const std::string MARKER_TARGET;
                     static const std::string MARKER_OBJ;
-                    static const std::string MARKER_SRC;
                     static const std::string MARKER_SOURCE;
                     static const std::string MARKER_SOURCE_C;
                     static const std::string MARKER_HEADER_C;

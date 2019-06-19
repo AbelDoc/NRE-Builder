@@ -60,14 +60,16 @@
                          * Create the entry corresponding makefile
                          * @param files   list containing all explorated files
                          * @param folders list containing all explorated folders
+                         * @param src     the source directory
                          */
-                        void createMakefile(FileList& files, FolderList& folders) const;
+                        void createMakefile(FileList& files, FolderList& folders, std::string const& src = "src") const;
                         /**
                          * Create the project main makefile
                          * @param files   list containing all explorated files
                          * @param folders list containing all explorated folders
+                         * @param src     the source directory
                          */
-                        void createProjectMakefile(FileList& files, FolderList& folders) const;
+                        void createProjectMakefile(FileList& files, FolderList& folders, std::string const& src = "src") const;
                         /**
                          * Create a bash script to create object archive
                          * @param files list containing all explorated files

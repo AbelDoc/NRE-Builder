@@ -1,0 +1,10 @@
+compiler=g++.exe
+linker=g++.exe
+archiver=ar.exe
+cflags=-pedantic -Wno-virtual-move-assign -Wall -Wextra -Wfloat-equal -Wstrict-overflow -Wshadow -Wconversion -Wunreachable-code -Wuninitialized -Winit-self -Werror -fstrict-overflow -std=c++17
+ldflags=-lstdc++fs
+includes=C:\lib\MinGW64_7.3\include
+lib=C:\lib\MinGW64_7.3\x86_64-w64-mingw32\lib\libmingw32.a
+libdir=C:\lib\MinGW64_7.3\lib
+out=NRE-Builder_Test
+excluded=

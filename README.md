@@ -13,6 +13,7 @@ The project will create a base project architecture :
    * _**src**_ : Will be used to store sources files, this folder will be analysed by the builder  
    * _**docs**_ : Will be used to store project's documentation
    * _**uml**_ : Will be used to store UML diagram
+   * _**test**_ : Will be used to store test sources files
    * _**src/main.cpp**_ : An empty file   
 After the creation the builder will analyse automatically the src directory to create corresponding makefile  
 
@@ -20,6 +21,8 @@ After the creation the builder will analyse automatically the src directory to c
 __./NRE-Builder.exe__  
 __./NRE-Builder.exe -a__  
 __./NRE-Builder.exe -analyse__  
+__./NRE-Builder.exe -t__  
+__./NRE-Builder.exe -test__  
 The project will analyse the src directory and create all needed makefile.  
 Some makefile can be useless for directory with only header files
 The builder will search for sub-directory recursively, no need to pack all files in one folder  
@@ -44,8 +47,14 @@ A simple bash script to create a static library in the lib directory
 * Where Y is the configuration out path and X the configuration out name  
 * It will regroup every object file (except those excluded from the build)
 
+If the test option is specified and not the analyse one, the analyser will look at the test directory and do the same work
+It will use config.test.nre configuration file. No archive script are generated with this option.
+
 ### Multiple Configuration
 __./NRE-Builder.exe -a -s=XXX__  
 __./NRE-Builder.exe -a -switch=XXX__  
+__./NRE-Builder.exe -t -s=XXX__  
+__./NRE-Builder.exe -t -switch=XXX__  
 The project will no longer search for config.nre file, instead it will search for config.XXX.nre.  
 Allowing you to have multiple configuration easily.  
+If the test option is specified then the tool will search for config.test.XXX.nre.
