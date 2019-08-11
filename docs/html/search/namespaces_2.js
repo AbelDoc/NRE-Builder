@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['nreb',['NREB',['../namespace_n_r_e_b.html',1,'']]]
+  ['nreb',['NREB',['../namespace_n_r_e_b.php',1,'']]]
 ];
