@@ -41,10 +41,8 @@
                 </a>
             </header>
             <?php addNavigationBarInl(false); ?>
-            <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
-                <div class="content" id="content">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-sm-12 panel " style="padding-bottom: 15px;">
-                                <div style="margin-bottom: 15px;">
+            <div id="top" class="row"><!-- do not remove this div, it is closed by doxygen! -->
+                <div class="col-lg-12">
+                    <div class="panel panel-default">
+                        <div class="panel-body">
 <!-- end header part -->
