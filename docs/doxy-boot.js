@@ -88,12 +88,6 @@ $( document ).ready(function() {
 		return t.width;
 	}
 
-	$('div.dyncontent').find('img').each(function(){
-		if(getOriginalWidthOfImg($(this)[0]) > $('#content>div.container').width())
-			$(this).css('width', '100%');
-	});
-
-
   /* responsive search box */
   $('#MSearchBox').parent().remove();
 
